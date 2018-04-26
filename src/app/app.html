@@ -1,1 +1,17 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" id="sidenav" swipeEnabled="false">
+    <ion-content>
+
+        <ion-list>
+
+            <button ion-item menuClose (click)="setPage(p.component)" *ngFor="let p of pages">
+                <ion-icon item-start small name="{{p.icon}}"></ion-icon>
+                {{p.title}}
+            </button>
+
+        </ion-list>
+
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>
