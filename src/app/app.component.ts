@@ -20,7 +20,8 @@ export class MyApp {
       { title: "Morbilidad", component: "MorbidityPage", icon: 'add' },
       { title: "Historial de paciente", component: "PacientHistoryPage", icon: 'add' },
       { title: "Transferir medicamento", component: "TransferMedicinePage", icon: 'add' },
-      { title: "Transferir Paciente", component: "TransferPatientPage", icon: 'add' }
+      { title: "Transferir Paciente", component: "TransferPatientPage", icon: 'add' },
+      { title: "Consultar Existencias", component: "ConsultExistencePage", icon: 'add' }
     ]
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

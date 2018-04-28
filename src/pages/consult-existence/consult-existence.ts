@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
-
 /**
- * Generated class for the TransferPatientPage page.
+ * Generated class for the ConsultExistencePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,35 +10,30 @@ import { ServicesProvider } from '../../providers/services/services';
 
 @IonicPage()
 @Component({
-  selector: 'page-transfer-patient',
-  templateUrl: 'transfer-patient.html',
+  selector: 'page-consult-existence',
+  templateUrl: 'consult-existence.html',
 })
-export class TransferPatientPage {
+export class ConsultExistencePage {
 
-  origen;
-  destino;
-  paciente;
+  medicine;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TransferPatientPage');
+    console.log('ionViewDidLoad ConsultExistencePage');
   }
 
-  traslate() {
+  consult() {
     let data = {
-      Origen: this.origen,
-      Destino: this.destino,
-      Paciente: this.paciente
-    }
+      Codigo: this.medicine
+    };
 
-    this.serviceProvider.transferPacient(data, ok => {
+    this.serviceProvider.consultExistence(data, ok => {
 
     }, err => {
       console.log(err);
-    })
-
+    });
   }
 
 }

@@ -20,4 +20,25 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Origen</ion-label>
+      <ion-input [(ngModel)]="origen"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Destino</ion-label>
+      <ion-input [(ngModel)]="destino"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Paciente</ion-label>
+      <ion-input [(ngModel)]="paciente"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="traslate()">Transladar</button>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
