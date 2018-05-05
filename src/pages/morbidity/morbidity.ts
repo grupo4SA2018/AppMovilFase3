@@ -35,22 +35,28 @@ export class MorbidityPage {
 
     this.serviceProvider.getMorbidity(ok => {
 
-      //this.serviceProvider.getMorbidity2(ok2 => {
-      this.total = ok.diagnostico.concat(this.data3)
-      ok.diagnostico.forEach(element => {
-        this.data3.forEach(element2 => {
-          if (element.Nombre == element2.Nombre) {
-            let data = { Nombre: element.Nombre, Total: parseFloat(element.Total) + parseFloat(element2.Total), "0-5": parseFloat(element['0-5']) + parseFloat(element2['0-5']), "6-15": parseFloat(element['6-15']) + parseFloat(element2['6-15']), "16-20": parseFloat(element['16-20']) + parseFloat(element2['16-20']), "21-45": parseFloat(element['21-45']) + parseFloat(element2['22-45']), "46-60": parseFloat(element['46-60']) + parseFloat(element2['46-60']), ">60": parseFloat(element['>60']) + parseFloat(element2['>60']) }
-            this.resultados.push(data)
-          }
-          else if (this.resultados.indexOf(element) == -1) {
-            this.resultados.push(element);
-          }
-          if (this.resultados.indexOf(element2) == -1) {
-            this.resultados.push(element2);
-          }
+      this.serviceProvider.getMorbidity2(ok2 => {
+        this.total = ok.diagnostico.concat(ok2.diagnostico)
+        ok.diagnostico.forEach(element => {
+          this.data3.forEach(element2 => {
+            if (element.Nombre == element2.Nombre) {
+              let data = { Nombre: element.Nombre, Total: parseFloat(element.Total) + parseFloat(element2.Total), "0-5": parseFloat(element['0-5']) + parseFloat(element2['0-5']), "6-15": parseFloat(element['6-15']) + parseFloat(element2['6-15']), "16-20": parseFloat(element['16-20']) + parseFloat(element2['16-20']), "21-45": parseFloat(element['21-45']) + parseFloat(element2['22-45']), "46-60": parseFloat(element['46-60']) + parseFloat(element2['46-60']), ">60": parseFloat(element['>60']) + parseFloat(element2['>60']) }
+              this.resultados.push(data)
+            }
+            else if (this.resultados.indexOf(element) == -1) {
+              this.resultados.push(element);
+            }
+            if (this.resultados.indexOf(element2) == -1) {
+              this.resultados.push(element2);
+            }
+          });
         });
+      }, err => {
+        console.log(err);
       });
+
+      //this.serviceProvider.getMorbidity2(ok2 => {
+
       /*  }, err => {
          console.log(err);
        }); */
