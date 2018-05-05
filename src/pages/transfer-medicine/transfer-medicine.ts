@@ -20,6 +20,8 @@ export class TransferMedicinePage {
   destino;
   medicamentos = [];
   medicines;
+  url;
+  data;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider, public alertCtrl: AlertController) {
   }
@@ -36,10 +38,12 @@ export class TransferMedicinePage {
       Medicamentos: this.medicamentos
     };
 
-    this.serviceProvider.transferMedicine(data, ok => {
-
+    this.serviceProvider.transferMedicine(this.url, data, ok => {
+      console.log(ok);
+      this.data = ok;
     }, err => {
       console.log(err);
+      this.data = err;
     });
   }
 

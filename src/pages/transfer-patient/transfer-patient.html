@@ -21,6 +21,12 @@
 <ion-content padding>
 
   <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Grupo</ion-label>
+      <ion-input [(ngModel)]="url"></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-label stacked>Origen</ion-label>
       <ion-input [(ngModel)]="origen"></ion-input>
@@ -40,5 +46,9 @@
       <button ion-button full (click)="traslate()">Transladar</button>
     </ion-item>
   </ion-list>
+
+  <div *ngIf="data">
+    {{data | json}}
+  </div>
 
 </ion-content>

@@ -19,6 +19,8 @@ export class TransferPatientPage {
   origen;
   destino;
   paciente;
+  url;
+  data;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
@@ -34,10 +36,13 @@ export class TransferPatientPage {
       Paciente: this.paciente
     }
 
-    this.serviceProvider.transferPacient(data, ok => {
+    this.serviceProvider.transferPacient(this.url, data, ok => {
+      console.log(ok);
+      this.data = ok;
 
     }, err => {
       console.log(err);
+      this.data = err;
     })
 
   }

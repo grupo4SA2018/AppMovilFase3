@@ -15,48 +15,48 @@ export class ServicesProvider {
     console.log('Hello ServicesProvider Provider');
   }
 
-  transferPacient(data, success, error) {
-    this.http.post('', data, { observe: 'response' }).subscribe(data => {
+  transferPacient(url, data, success, error) {
+    this.http.post(url, data, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
     });
   }
 
-  consultExistence(data, success, error) {
-    this.http.post('', data, { observe: 'response' }).subscribe(data => {
+  consultExistence(url, data, success, error) {
+    this.http.post(url, data, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
     });
   }
 
-  transferMedicine(data, success, error) {
-    this.http.post('', data, { observe: 'response' }).subscribe(data => {
+  transferMedicine(url, data, success, error) {
+    this.http.post(url, data, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
     });
   }
 
-  dispachMedicine(data, success, error) {
-    this.http.post('', data, { observe: 'response' }).subscribe(data => {
+  dispachMedicine(url, data, success, error) {
+    this.http.post(url, data, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
     });
   }
 
-  pacientHistory(data, success, error) {
-    this.http.post('', data, { observe: 'response' }).subscribe(data => {
+  pacientHistory(url, data, success, error) {
+    this.http.post(url, data, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
     });
   }
 
-  getMorbidity(success, error) {
-    this.http.get('', { observe: 'response' }).subscribe(data => {
+  getMorbidity(url, success, error) {
+    this.http.post(url, { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);

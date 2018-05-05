@@ -21,6 +21,12 @@
 <ion-content padding>
 
   <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Grupo</ion-label>
+      <ion-input [(ngModel)]="url"></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-label stacked>Codigo del paciente</ion-label>
       <ion-input [(ngModel)]="pacient"></ion-input>
@@ -30,5 +36,9 @@
       <button ion-button full (click)="getHistory()">Obtener</button>
     </ion-item>
   </ion-list>
+
+  <div *ngIf="data">
+    {{data | json}}
+  </div>
 
 </ion-content>

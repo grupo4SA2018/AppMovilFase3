@@ -21,9 +21,20 @@
 <ion-content padding>
 
   <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Grupo</ion-label>
+      <ion-input [(ngModel)]="url"></ion-input>
+    </ion-item>
+
     <ion-item>
       <button ion-button full (click)="getReport()">Crear Reporte</button>
     </ion-item>
+
   </ion-list>
+
+  <div *ngIf="data">
+    {{data | json}}
+  </div>
 
 </ion-content>

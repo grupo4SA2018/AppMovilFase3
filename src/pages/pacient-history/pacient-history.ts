@@ -17,6 +17,8 @@ import { ServicesProvider } from '../../providers/services/services';
 export class PacientHistoryPage {
 
   pacient;
+  url;
+  data;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
@@ -30,10 +32,14 @@ export class PacientHistoryPage {
       DPI: this.pacient
     };
 
-    this.serviceProvider.pacientHistory(data, ok => {
-
+    this.serviceProvider.pacientHistory(this.url, data, ok => {
+      console.log(ok);
+      this.data = ok;
     }, err => {
-
+      console.log(JSON.parse(err.error.text));
+      this.data = err;
+      /* let datos = JSON.parse(err.error.text);
+      console.log(datos); */
     })
   }
 

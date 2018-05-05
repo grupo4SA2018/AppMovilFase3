@@ -16,6 +16,8 @@ import { ServicesProvider } from '../../providers/services/services';
 export class ConsultExistencePage {
 
   medicine;
+  url;
+  data;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
@@ -27,9 +29,12 @@ export class ConsultExistencePage {
   consult() {
     let data = {
       Codigo: this.medicine
-    };
+    }
+    console.log(this.url);
 
-    this.serviceProvider.consultExistence(data, ok => {
+    this.serviceProvider.consultExistence(this.url, data, ok => {
+      console.log(ok);
+      this.data = ok;
 
     }, err => {
       console.log(err);

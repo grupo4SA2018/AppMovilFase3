@@ -17,6 +17,8 @@ import { ServicesProvider } from '../../providers/services/services';
 export class MedicineDispachPage {
 
   medicine;
+  url;
+  data;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
@@ -30,10 +32,13 @@ export class MedicineDispachPage {
       Receta: this.medicine
     };
 
-    this.serviceProvider.dispachMedicine(data, ok => {
+    console.log(this.url);
 
+    this.serviceProvider.dispachMedicine(this.url, data, ok => {
+      this.data = ok;
     }, err => {
       console.log(err);
+      this.data = err;
     });
   }
 

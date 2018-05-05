@@ -16,6 +16,9 @@ import { ServicesProvider } from '../../providers/services/services';
 })
 export class MorbidityPage {
 
+  data;
+  url;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
 
@@ -24,10 +27,13 @@ export class MorbidityPage {
   }
 
   getReport() {
-    this.serviceProvider.getMorbidity(ok => {
+    this.serviceProvider.getMorbidity(this.url, ok => {
+      console.log(ok);
+      this.data = ok;
 
     }, err => {
       console.log(err);
+      this.data = err;
     });
   }
 
