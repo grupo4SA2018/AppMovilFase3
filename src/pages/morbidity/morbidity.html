@@ -23,18 +23,19 @@
   <ion-list>
 
     <ion-item>
-      <ion-label stacked>Grupo</ion-label>
-      <ion-input [(ngModel)]="url"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <button ion-button full (click)="getReport()">Crear Reporte</button>
     </ion-item>
 
   </ion-list>
 
-  <div *ngIf="data">
-    {{data | json}}
+  <div *ngIf="total">
+    <ion-list>
+      <ion-item *ngFor="let dat of total">
+        <p>Id: {{dat.Id}}</p>
+        <p>Nombre: {{dat.Nombre}}</p>
+        <p>Total: {{dat.Total}}</p>
+      </ion-item>
+    </ion-list>
   </div>
 
 </ion-content>

@@ -18,6 +18,8 @@ export class MorbidityPage {
 
   data;
   url;
+  total;
+  data2;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public serviceProvider: ServicesProvider) {
   }
@@ -27,9 +29,17 @@ export class MorbidityPage {
   }
 
   getReport() {
-    this.serviceProvider.getMorbidity(this.url, ok => {
-      console.log(ok);
-      this.data = ok;
+    this.serviceProvider.getMorbidity(ok => {
+      console.log(ok.diagnostico);
+      this.data = ok.diagnostico;
+
+      this.serviceProvider.getMorbidity2(ok2=>{
+        this.data2 = ok2.diagnostico;
+
+        this.total = ok.diagnostico.concat(ok2.diagnostico)
+      }, err=>{
+        console.log(err);
+      });
 
     }, err => {
       console.log(err);

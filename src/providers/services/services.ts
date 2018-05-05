@@ -55,8 +55,16 @@ export class ServicesProvider {
     });
   }
 
-  getMorbidity(url, success, error) {
-    this.http.post(url, { observe: 'response' }).subscribe(data => {
+  getMorbidity(success, error) {
+    this.http.post('http://testgrupo4.cloudhub.io/Servicios/Morbilidad', { observe: 'response' }).subscribe(data => {
+      success(data);
+    }, err => {
+      error(err);
+    });
+  }
+
+  getMorbidity2(success, error) {
+    this.http.post('http://192.168.43.243:8081/morb', { observe: 'response' }).subscribe(data => {
       success(data);
     }, err => {
       error(err);
