@@ -28,9 +28,9 @@
 
   </ion-list>
 
-  <div *ngIf="total">
+  <div *ngIf="resultados">
     <ion-list>
-      <ion-item *ngFor="let dat of total">
+      <ion-item *ngFor="let dat of resultados">
         <p>Id: {{dat.Id}}</p>
         <p>Nombre: {{dat.Nombre}}</p>
         <p>Total: {{dat.Total}}</p>
